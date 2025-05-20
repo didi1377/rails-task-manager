@@ -1,5 +1,5 @@
 <h1><%= @task.title %></h1>
-<p><%= @task.completed? %></p>
 <p><%= @task.details %></p>
+<%= @task.completed ? raw('<i class="fa-regular fa-square-check"></i>') : raw('<i class="fa-regular fa-square-check"></i>') %>
 <%= link_to "Edit", edit_task_path(@task) %>
 <%= link_to "back to all tasks", tasks_path %>

@@ -2,11 +2,12 @@
 <ul>
   <% @tasks.each do |task| %>
     <li>
-    <%= link_to task.title, task_path(task) %> -
-    <%= task.completed? %> -
-    <%= link_to "Delete",
+    <%= task.completed ? raw('<i class="fa-regular fa-square-check"></i>') : raw('<i class="fa-regular fa-square-check"></i>') %>
+    <%= link_to task.title, task_path(task) %>
+    <%= link_to raw('<i class="fa-solid fa-trash"></i>'),
       task_path(task),
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     </li>
   <% end %>
 </ul>
+<%= link_to raw('<button type="button" class="btn btn-success">Add New</button>'), new_task_path %>
